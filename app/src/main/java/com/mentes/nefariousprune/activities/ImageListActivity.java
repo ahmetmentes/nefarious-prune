@@ -118,6 +118,7 @@ public class ImageListActivity extends AppCompatActivity implements ImageListAda
 
         @Override
         public void failure(RetrofitError error) {
+            // Just trying snackbar
             Snackbar.make(imageListRecyclerView, R.string.an_error_occurred,Snackbar.LENGTH_SHORT)
                     .show();
         }
