@@ -26,6 +26,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.View
     private List<Media> mediaList;
     private ImageListListener imageListListener;
 
+
     public ImageListAdapter(ImageListListener imageListListener) {
         this.mediaList = new ArrayList<>();
         this.imageListListener = imageListListener;
@@ -57,6 +58,11 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.View
 
     public void addMedia(List<Media> mediaList) {
         this.mediaList.addAll(mediaList);
+        notifyDataSetChanged();
+    }
+
+    public void clearData() {
+        this.mediaList.clear();
         notifyDataSetChanged();
     }
 

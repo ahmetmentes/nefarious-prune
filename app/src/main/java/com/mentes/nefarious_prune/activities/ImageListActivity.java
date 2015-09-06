@@ -1,10 +1,14 @@
 package com.mentes.nefarious_prune.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.mentes.nefarious_prune.R;
 import com.mentes.nefarious_prune.adapters.ImageListAdapter;
@@ -34,7 +38,8 @@ public class ImageListActivity extends AppCompatActivity implements ImageListAda
 
     private InstagramService instagramService;
 
-    private static String next_max_tag_id;
+    private static String nextMaxTagId;
+    private static String tagName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +55,11 @@ public class ImageListActivity extends AppCompatActivity implements ImageListAda
         imageListAdapter = new ImageListAdapter(ImageListActivity.this);
         imageListRecyclerView.setAdapter(imageListAdapter);
 
+        tagName = TAG_NAME;
+
         instagramService = NetworkManager.getInstagramService();
 
-        instagramService.getRecentMedia(TAG_NAME, NetworkManager.getInstagramClientId(), recentMediaCallback);
-
+        fetchRecentMedia();
     }
 
     private void arrangeToolbar() {
@@ -62,24 +68,52 @@ public class ImageListActivity extends AppCompatActivity implements ImageListAda
 
         toolbar.inflateMenu(R.menu.menu_search);
 
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(toolbar.getMenu().findItem(R.id.action_search));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                tagName = query;
+                fetchRecentMedia();
+                imageListAdapter.clearData();
+                fetchRecentMedia();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+    }
+
+    private void fetchRecentMedia() {
+        instagramService.getRecentMedia(tagName, NetworkManager.getInstagramClientId(), recentMediaCallback);
     }
 
     @Override
     public void onLoadMore() {
-
-        instagramService.getRecentMedia(TAG_NAME, NetworkManager.getInstagramClientId(), next_max_tag_id, recentMediaCallback);
+        instagramService.getRecentMedia(tagName, NetworkManager.getInstagramClientId(), nextMaxTagId, recentMediaCallback);
     }
 
     Callback<RecentMedia> recentMediaCallback = new Callback<RecentMedia>() {
         @Override
         public void success(RecentMedia recentMedia, Response response) {
-            next_max_tag_id = recentMedia.getPagination().getNextMaxTagId();
+            nextMaxTagId = recentMedia.getPagination().getNextMaxTagId();
             imageListAdapter.addMedia(recentMedia.getMedia());
         }
 
         @Override
         public void failure(RetrofitError error) {
-
+            Snackbar.make(imageListRecyclerView, R.string.an_error_occurred,Snackbar.LENGTH_INDEFINITE)
+                    .setAction(R.string.try_again, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            fetchRecentMedia();
+                        }
+                    })
+                    .show();
         }
     };
 
