@@ -3,9 +3,10 @@
 
     <color name="instagram_blue">#125688</color>
     <color name="instagram_blue_dark">#323669</color>
+    <color name="light_gray">#D3D3D3</color>
 
     <color name="primary">@color/instagram_blue</color>
-    <color name="primary_dark">@color/instagram_blue_dark</color>
+    <color name="primary_dark">#0c4a76</color>
 
 
 </resources>

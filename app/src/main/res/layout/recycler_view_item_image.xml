@@ -1,0 +1,8 @@
+<com.mentes.nefarious_prune.customviews.SquareImageView
+    android:id="@+id/image"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scaleType="centerCrop"
+    android:background="@color/light_gray"
+    android:layout_margin="3dp"/>
