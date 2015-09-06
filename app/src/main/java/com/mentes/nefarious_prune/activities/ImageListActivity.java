@@ -1,7 +1,10 @@
 package com.mentes.nefarious_prune.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -97,22 +100,25 @@ public class ImageListActivity extends AppCompatActivity implements ImageListAda
         instagramService.getRecentMedia(tagName, NetworkManager.getInstagramClientId(), nextMaxTagId, recentMediaCallback);
     }
 
-    Callback<RecentMedia> recentMediaCallback = new Callback<RecentMedia>() {
+    @Override
+    public void onImageClicked(View view, String imageUrl) {
+        Intent intent = FullImageActivity.newIntent(this,imageUrl);
+
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, view.findViewById(R.id.image), FullImageActivity.IMAGE_URL);
+        ActivityCompat.startActivity(this, intent, options.toBundle());
+    }
+
+    private Callback<RecentMedia> recentMediaCallback = new Callback<RecentMedia>() {
         @Override
         public void success(RecentMedia recentMedia, Response response) {
             nextMaxTagId = recentMedia.getPagination().getNextMaxTagId();
             imageListAdapter.addMedia(recentMedia.getMedia());
         }
 
+
         @Override
         public void failure(RetrofitError error) {
-            Snackbar.make(imageListRecyclerView, R.string.an_error_occurred,Snackbar.LENGTH_INDEFINITE)
-                    .setAction(R.string.try_again, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            fetchRecentMedia();
-                        }
-                    })
+            Snackbar.make(imageListRecyclerView, R.string.an_error_occurred,Snackbar.LENGTH_SHORT)
                     .show();
         }
     };

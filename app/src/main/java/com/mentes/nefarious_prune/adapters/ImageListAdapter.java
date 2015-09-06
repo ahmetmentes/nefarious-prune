@@ -42,6 +42,17 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.View
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         final Media media = mediaList.get(position);
         Picasso.with(viewHolder.image.getContext()).load(media.getImages().getLowResolution().getUrl()).into(viewHolder.image);
+
+        viewHolder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (imageListListener != null) {
+                    imageListListener.onImageClicked(viewHolder.view, media.getImages().getStandardResolution().getUrl());
+                }
+            }
+        });
+
         if(position == getItemCount() - LEFT_IMAGE_NUMBER_TO_LOAD_MORE) {
             if(imageListListener != null) {
                 imageListListener.onLoadMore();
@@ -71,14 +82,18 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.View
         @Bind(R.id.image)
         public SquareImageView image;
 
+        View view;
+
         public ViewHolder(View itemView) {
             super(itemView);
+            this.view = itemView;
             ButterKnife.bind(this, itemView);
         }
     }
 
     public interface ImageListListener {
         void onLoadMore();
+        void onImageClicked(View view, String imageUrl);
     }
 
 
