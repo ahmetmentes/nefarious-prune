@@ -1,6 +1,6 @@
-package com.mentes.nefarious_prune.network;
+package com.mentes.nefariousprune.network;
 
-import com.mentes.nefarious_prune.network.models.RecentMedia;
+import com.mentes.nefariousprune.network.models.RecentMedia;
 
 import retrofit.Callback;
 import retrofit.http.GET;

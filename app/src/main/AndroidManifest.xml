@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mentes.nefarious_prune" >
+    package="com.mentes.nefariousprune" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name=".core.NefariousPruneApp"
+        android:name="com.mentes.nefariousprune.core.NefariousPruneApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".activities.ImageListActivity"
+            android:name="com.mentes.nefariousprune.activities.ImageListActivity"
             android:label="@string/app_name"
             android:screenOrientation="nosensor">
             <intent-filter>
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.FullImageActivity"
+        <activity android:name="com.mentes.nefariousprune.activities.FullImageActivity"
             android:label="@string/app_name"
             android:screenOrientation="nosensor"/>
 

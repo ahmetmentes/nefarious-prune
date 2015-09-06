@@ -1,4 +1,4 @@
-package com.mentes.nefarious_prune.utils;
+package com.mentes.nefariousprune.utils;
 
 /**
  * Created by ahmetmentes on 05/09/15.

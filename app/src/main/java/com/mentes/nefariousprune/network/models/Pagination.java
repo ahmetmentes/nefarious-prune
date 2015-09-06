@@ -1,4 +1,4 @@
-package com.mentes.nefarious_prune.network.models;
+package com.mentes.nefariousprune.network.models;
 
 import com.google.gson.annotations.SerializedName;
 

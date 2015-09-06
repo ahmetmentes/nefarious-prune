@@ -1,4 +1,4 @@
-package com.mentes.nefarious_prune.utils;
+package com.mentes.nefariousprune.utils;
 
 import android.content.Context;
 import android.text.TextUtils;

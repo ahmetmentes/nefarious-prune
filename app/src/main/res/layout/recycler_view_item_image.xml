@@ -1,4 +1,4 @@
-<com.mentes.nefarious_prune.customviews.SquareImageView
+<com.mentes.nefariousprune.customviews.SquareImageView
     android:id="@+id/image"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

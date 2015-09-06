@@ -1,4 +1,4 @@
-package com.mentes.nefarious_prune.activities;
+package com.mentes.nefariousprune.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +13,11 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.mentes.nefarious_prune.R;
-import com.mentes.nefarious_prune.adapters.ImageListAdapter;
-import com.mentes.nefarious_prune.network.InstagramService;
-import com.mentes.nefarious_prune.network.NetworkManager;
-import com.mentes.nefarious_prune.network.models.RecentMedia;
+import com.mentes.nefariousprune.R;
+import com.mentes.nefariousprune.adapters.ImageListAdapter;
+import com.mentes.nefariousprune.network.InstagramService;
+import com.mentes.nefariousprune.network.NetworkManager;
+import com.mentes.nefariousprune.network.models.RecentMedia;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

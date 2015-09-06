@@ -1,4 +1,4 @@
-package com.mentes.nefarious_prune.activities;
+package com.mentes.nefariousprune.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,7 +11,7 @@ import android.support.v7.graphics.Palette;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.mentes.nefarious_prune.R;
+import com.mentes.nefariousprune.R;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -62,7 +62,6 @@ public class FullImageActivity extends AppCompatActivity {
 
             @Override
             public void onError() {
-                supportStartPostponedEnterTransition();
             }
         });
 

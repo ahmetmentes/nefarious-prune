@@ -1,4 +1,4 @@
-package com.mentes.nefarious_prune;
+package com.mentes.nefariousprune;
 
 import org.junit.Test;
 

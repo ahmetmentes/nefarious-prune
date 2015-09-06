@@ -1,4 +1,4 @@
-package com.mentes.nefarious_prune;
+package com.mentes.nefariousprune;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

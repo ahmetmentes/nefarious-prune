@@ -1,4 +1,4 @@
-package com.mentes.nefarious_prune.customviews;
+package com.mentes.nefariousprune.customviews;
 
 import android.content.Context;
 import android.util.AttributeSet;

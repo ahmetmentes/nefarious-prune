@@ -1,13 +1,13 @@
-package com.mentes.nefarious_prune.adapters;
+package com.mentes.nefariousprune.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mentes.nefarious_prune.R;
-import com.mentes.nefarious_prune.customviews.SquareImageView;
-import com.mentes.nefarious_prune.network.models.Media;
+import com.mentes.nefariousprune.R;
+import com.mentes.nefariousprune.customviews.SquareImageView;
+import com.mentes.nefariousprune.network.models.Media;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

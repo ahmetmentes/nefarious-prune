@@ -1,4 +1,4 @@
-package com.mentes.nefarious_prune.network.models;
+package com.mentes.nefariousprune.network.models;
 
 /**
  * Created by ahmetmentes on 06/09/15.

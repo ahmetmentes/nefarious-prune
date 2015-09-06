@@ -1,9 +1,9 @@
-package com.mentes.nefarious_prune.network;
+package com.mentes.nefariousprune.network;
 
 import android.content.Context;
 
-import com.mentes.nefarious_prune.BuildConfig;
-import com.mentes.nefarious_prune.utils.Util;
+import com.mentes.nefariousprune.BuildConfig;
+import com.mentes.nefariousprune.utils.Util;
 
 import retrofit.RestAdapter;
 

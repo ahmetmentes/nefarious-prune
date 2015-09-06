@@ -1,8 +1,8 @@
-package com.mentes.nefarious_prune.core;
+package com.mentes.nefariousprune.core;
 
 import android.app.Application;
 
-import com.mentes.nefarious_prune.network.NetworkManager;
+import com.mentes.nefariousprune.network.NetworkManager;
 
 /**
  * Created by ahmetmentes on 06/09/15.
