@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="instagram_blue">#125688</color>
+    <color name="instagram_blue_dark">#323669</color>
+
+    <color name="primary">@color/instagram_blue</color>
+    <color name="primary_dark">@color/instagram_blue_dark</color>
+
+
+</resources>
